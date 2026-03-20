@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sahil Hotel</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Poppins',sans-serif;background:#f8fafc;color:#1e293b}
+header{display:flex;justify-content:space-between;padding:20px 60px;position:fixed;width:100%;background:#0f172a;color:#fff;box-shadow:0 2px 15px rgba(0,0,0,0.3);z-index:10}
+nav a{color:#e2e8f0;margin:0 15px;text-decoration:none;font-weight:500}
+
+.hero{height:100vh;position:relative;overflow:hidden}
+.slide{position:absolute;width:100%;height:100%;background-size:cover;background-position:center;opacity:0;transition:1s}
+.active{opacity:1}
+.overlay{position:absolute;width:100%;height:100%;background:rgba(0,0,0,0.4)}
+.hero-content{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;color:#fff}
+.hero h1{font-family:'Playfair Display';font-size:70px;margin:0}
+.hero p{font-size:22px}
+
+.container{padding:100px 60px;max-width:1300px;margin:auto}
+.section-title{text-align:center;font-size:40px;margin-bottom:20px}
+.section-text{text-align:center;max-width:700px;margin:auto;margin-bottom:40px}
+
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px}
+.gallery img{width:100%;height:200px;object-fit:cover;border-radius:10px}
+
+.rooms{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
+.card{border-radius:15px;overflow:hidden;box-shadow:0 10px 25px rgba(0,0,0,0.1);transition:0.3s;background:#fff}
+.card:hover{transform:translateY(-10px)}
+.card img{width:100%;height:220px;object-fit:cover}
+.card-content{padding:20px}
+button{background:linear-gradient(135deg,#f59e0b,#fbbf24);color:#000;padding:12px;border:none;border-radius:8px;width:100%;cursor:pointer;font-weight:600}
+
+.booking{background:#ffffff;padding:40px;border-radius:15px;max-width:500px;margin:auto;box-shadow:0 10px 30px rgba(0,0,0,0.1)}
+input,select{width:100%;padding:10px;margin:10px 0;border-radius:8px;border:1px solid #ccc}
+.slider{width:100%}
+.price{font-size:24px;margin:15px 0}
+
+footer{text-align:center;padding:20px;background:#0f172a;color:#e2e8f0;margin-top:50px}
+</style>
+</head>
+<body>
+
+<header>
+<h2>Sahil Hotel</h2>
+<nav>
+<a href="#">Home</a>
+<a href="#gallery">Gallery</a>
+<a href="#rooms">Rooms</a>
+<a href="#booking">Booking</a>
+</nav>
+</header>
+
+<div class="hero">
+<div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1566073771259-6a8506099945')"></div>
+<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1501117716987-c8e1ecb2101b')"></div>
+<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b')"></div>
+<div class="overlay"></div>
+<div class="hero-content">
+<h1>Sahil Hotel</h1>
+<p>Experience Comfort in Rishikesh</p>
+</div>
+</div>
+
+<div class="container">
+<h2 class="section-title">About Hotel</h2>
+<p class="section-text">Sahil Hotel in Rishikesh offers a comfortable and relaxing stay with modern amenities and friendly service. Our hotel is designed to provide a peaceful environment for families, couples, and solo travelers. Enjoy clean rooms, great hospitality, and easy access to nearby attractions. We ensure a pleasant and memorable experience for every guest.</p>
+</div>
+
+<div class="container" id="gallery">
+<h2 class="section-title">Gallery</h2>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39">
+<img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7">
+<img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf">
+<img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2">
+</div>
+</div>
+
+<div class="container" id="rooms">
+<h2 class="section-title">Our Rooms</h2>
+<div class="rooms">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32">
+<div class="card-content">
+<h3>Standard Room</h3>
+<p>A cozy and budget-friendly room perfect for a comfortable stay. It includes essential amenities and a relaxing environment for guests.</p>
+<ul>
+<li>✔ AC</li>
+<li>✔ WiFi</li>
+<li>✔ TV</li>
+<li>✔ Landline Phone</li>
+<li>✔ Clean Bathroom</li>
+</ul>
+<p>₹1000 / night</p>
+<button onclick="selectRoom(1000)">Book Now</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1590490360182-c33d57733427">
+<div class="card-content">
+<h3>Deluxe Room</h3>
+<p>A spacious and well-designed room with modern interiors and a beautiful balcony view. Ideal for guests looking for extra comfort and style.</p>
+<ul>
+<li>✔ AC</li>
+<li>✔ WiFi</li>
+<li>✔ Smart TV</li>
+<li>✔ Landline Phone</li>
+<li>✔ Balcony</li>
+<li>✔ Room Service</li>
+</ul>
+<p>₹1500 / night</p>
+<button onclick="selectRoom(1500)">Book Now</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7">
+<div class="card-content">
+<h3>Super Deluxe Room</h3>
+<p>An upgraded room with premium facilities, stylish decor, and extra space for a luxurious stay experience.</p>
+<ul>
+<li>✔ AC</li>
+<li>✔ High-Speed WiFi</li>
+<li>✔ Smart TV</li>
+<li>✔ Landline Phone</li>
+<li>✔ Mini Fridge</li>
+<li>✔ Room Service</li>
+</ul>
+<p>₹2000 / night</p>
+<button onclick="selectRoom(2000)">Book Now</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2">
+<div class="card-content">
+<h3>Family Room</h3>
+<p>A large room specially designed for families, offering multiple beds and a comfortable environment for group stays.</p>
+<ul>
+<li>✔ AC</li>
+<li>✔ WiFi</li>
+<li>✔ TV</li>
+<li>✔ Landline Phone</li>
+<li>✔ Multiple Beds</li>
+<li>✔ 24/7 Room Service</li>
+</ul>
+<p>₹2500 / night</p>
+<button onclick="selectRoom(2500)">Book Now</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1590490360182-c33d57733427">
+<div class="card-content">
+<h3>Deluxe Room</h3>
+<p>A spacious and well-designed room with modern interiors and a beautiful balcony view. Ideal for guests looking for extra comfort and style.</p>
+<p>₹1500 / night</p>
+<button onclick="selectRoom(1500)">Book Now</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="container" id="booking">
+<h2 class="section-title">Booking</h2>
+<p class="section-text">Booking your stay at Sahil Hotel is quick and easy. Choose your dates, select your room, and confirm your reservation in just a few steps. We provide a smooth and hassle-free booking experience for all our guests.</p>
+<div class="booking">
+<input type="date">
+<input type="date">
+<input type="range" min="1" max="10" value="1" id="days" oninput="calc()">
+<p><span id="nights">1</span> Nights</p>
+<select>
+<option>2 Adults</option>
+<option>2 Adults, 1 Child</option>
+<option>2 Adults, 2 Children</option>
+</select>
+<div class="price">₹ <span id="price">0</span></div>
+<button>Confirm Booking</button>
+</div>
+</div>
+
+<footer>
+<p>© 2026 Sahil Hotel</p>
+</footer>
+
+<script>
+let pricePerNight=0;
+function selectRoom(p){pricePerNight=p;calc();window.scrollTo({top:document.getElementById('booking').offsetTop,behavior:'smooth'})}
+function calc(){let d=document.getElementById('days').value;document.getElementById('nights').innerText=d;document.getElementById('price').innerText=d*pricePerNight}
+let slides=document.querySelectorAll('.slide');let i=0;setInterval(()=>{slides[i].classList.remove('active');i=(i+1)%slides.length;slides[i].classList.add('active')},3000);
+</script>
+
+</body>
+</html>
